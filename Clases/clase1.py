@@ -208,3 +208,19 @@ while contador < 5:
     print("Este es el paso", contador)
 """
 
+# FUNCIONES BUILT-IN
+
+#print() input() range()
+
+# A range le puedo pasar hasta 3 parámetros. El primero es el inicio de secuencia. El 2do es
+# el final de la secuencia, el cual ese mismo número es excluido, y el 3er parámetro es el paso
+# de la secuencia (ej: de 2 en 2)
+
+#for numero in range(2, 10, 2):
+    #print(numero)
+
+lista_pares = list(range(2, 11, 2))
+#print(lista_pares)
+
+# int() float() str() len() min() max() bool()
+
