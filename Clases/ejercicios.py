@@ -1,44 +1,30 @@
 """
-lista=[1,2,3,4,5,6,7,8,9,50]
-cont=0
-suma=0
-while cont<=len(lista)-2:
-    suma=suma+lista[cont]
-    cont+=1
+lista = [0, 1]
 
-print(suma)
-"""
-"""
-lista = [10, 2, 5, 8, 7]
+def fibo(num):
+    if num <= 2:
+        print("El numero debe ser mayor a 2")
+    else:
+        for i in range(2, num):
+            lista.append(lista[i-2] + lista[i-1])
+    return lista
 
-suma = 0
 
-for num in lista[:-1]:
-    suma += num
-
-print("La suma de los números excepto el último es:", suma)
-"""
-"""
-lista=[1,2,3,4,5,6,7,8,9,50]
-
-nul=[]
-while nul!=lista:
-    print(lista[-1])
-
-    lista.remove(lista[-1])
-
-print(lista)
+print(fibo(2))
 """
 
-"""
-lista = [1, 2, 3, 4, 5]
-
-
-while lista:
+def fibo(n):
+    if n <= 2:
+        return "El número debe ser mayor que 2."
+        
+    fibonacci = [0, 1]
     
-    print(lista[0])
+    while len(fibonacci) < n:
+        next = fibonacci[-1] + fibonacci[-2]
+        fibonacci.append(next)
     
-    del lista[0]
+    return fibonacci
 
-print(lista)
-"""
+prueba = 2
+resultado = fibo(prueba)
+print(resultado)

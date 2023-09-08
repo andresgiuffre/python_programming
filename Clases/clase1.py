@@ -224,3 +224,72 @@ lista_pares = list(range(2, 11, 2))
 
 # int() float() str() len() min() max() bool()
 
+# FUNCIONES
+
+def sumar(a, b):
+    c = a + b
+    
+
+#print(sumar(10, 20))
+
+def imprimir_mensajes(mensaje="No se escribió nada"):
+    """
+    Esta función sirve para impimir mensajes,
+    si no se le pasa ningún parámetro, devolverá un mensaje
+    por defecto.
+    """
+    print(mensaje)
+
+#help(imprimir_mensajes)
+#imprimir_mensajes()
+
+# SCOPE
+
+x = 1
+
+def funcion():
+    global x
+    x = 2
+
+#print(x)
+funcion()
+#print(x)
+
+def funcion_externa():
+    z = 'hola'
+
+    def funcion_interna():
+        nonlocal z
+        z = 'chau'
+
+    funcion_interna()
+    #print(z)
+
+
+# ARGUMENTOS DE LONGITUD VARIABLE
+
+def funcion(*args):
+    #print(type(args))
+    #print(args)
+    pass
+
+
+#funcion(1, 2, 3, 4, 5, 6, 7)
+
+def suma(**kwargs):
+    #print(type(kwargs))
+    #print(kwargs)
+
+    total = 0
+    for arg in kwargs:
+        total = total + kwargs[arg]
+    #print(total)
+
+
+suma(a=10, b=20, c=30, d=40, e=77)
+
+# ORDEN DE LOS ARGUMENTOS DE LAS FUNCIONES
+
+def funct(a, b, *args, c='hola', **kwargs):    
+    pass
+
