@@ -66,3 +66,30 @@ estudiante1 = Estudiante("Juan", "Perez", "Ingeniería en Informática", 25)
 estudiante1.mostrar_carrera()
 estudiante1.nombre_completo()
 """
+
+# EJERCICIO RUTA Y EXTENSIONES
+
+import os
+import sys
+
+# Pasamos los argumentos y validamos que haya la cantidad correcta
+ruta = sys.argv[1]
+extension = sys.argv[2]
+if not ruta and not extension:
+    print("La cantidad de argumentos no es la correcta. Deben ser 2")
+    sys.exit()
+
+# Obtener una lista de archivos en la ruta
+try:
+    validar_contenido = os.listdir(ruta)
+except FileNotFoundError:
+    print("La ruta no existe")
+    sys.exit()
+
+
+for contenido in validar_contenido:
+    if contenido.endswith(extension):
+        print(contenido)
+    else:
+        print(f"No se encuentrar archivos con la extensión {extension}")
+        sys.exit()

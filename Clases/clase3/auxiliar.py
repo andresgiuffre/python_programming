@@ -1,4 +1,5 @@
-from clase3 import Automovil
+from clase3 import Automovil, ClaseA, ClaseB
+
 
 """
 mi_objeto = Clase()

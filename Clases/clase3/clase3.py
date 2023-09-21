@@ -115,9 +115,13 @@ class ClaseC(ClaseA, ClaseB):
         print("Mensaje clase C") # Sobreescritura
         super().mensaje()
 
+    def mensaje_b(self):
+        ClaseB.mensaje(self)
+
 
 mi_objeto = ClaseC()
-mi_objeto.mensaje()
+mi_objeto.mensaje() # Imprime mensaje ClaseC y ClaseA que es el primer padre
+mi_objeto.mensaje_b() # Imprime mensaje de ClaseB
 """
 
 # POLIMORFISMO
@@ -183,3 +187,121 @@ def calcular_y_mostrar_area(figura):
 calcular_y_mostrar_area(circulo)
 calcular_y_mostrar_area(rectangulo)
 """
+
+# MODULOS Y PAQUETES
+
+# La gran mayoria de los modulos externos están listados en PYPI (Python Package Index)
+# pypi.org
+
+# Para instalar paquetes externos usamos pip
+
+# pip install <nombre_del_paquete> --> Instala un paquete
+# pip uninstall <nombre_del_paquete> --> para desinstalar
+# pip freeze --> Nos lista los paquetes que están instalados
+# pip search <termino_de_busqueda> --> Para buscar paquetes en PyPI
+
+
+# ARGUMENTOS DE PROGRAMA
+
+# Librería sys - sys.argv (es una lista)
+# Sirve en caso de ejecutar el script desde un terminal
+
+"""
+import sys
+
+nombres = sys.argv[1:]
+
+if nombres:
+    for nombre in nombres:
+        print(f"Hola, {nombre}!!")
+else:
+    print("No indicaste ningún nombre!")
+"""
+
+# SISTEMA DE ARCHIVOS
+
+"""
+# Librería os
+import os
+
+# Funcion os.listdir() --> Devuelve una lista con archivos y carpetas contenidos en el directorio
+dir = os.listdir("C:\\Temp")
+print(os.listdir(os.getcwd()))
+print(dir)
+
+# os.path.exists() --> Valida si carpeta o archivo existen y devuelve un booleano
+exists = os.path.exists("C:\\Temp")
+print(exists)
+
+# os.mkdir() --> Crea una carpeta
+try:
+    os.mkdir("C:\\Users\\AndresGiuffre\\OneDrive - kyndryl\\Documents\\PythonProgramming\\python_programming\\demo")
+except FileExistsError:
+    print("La carpeta ya existe!!")
+
+# os.rmdir() --> Elimina una carpeta siempre que se encuentre vacía
+try:
+    os.rmdir("C:\\Users\\AndresGiuffre\\OneDrive - kyndryl\\Documents\\PythonProgramming\\python_programming\\demo")
+except OSError:
+    print("El directorio no está vacío!!")
+
+# os.remove() --> Elimina un archivo
+try:
+    os.remove("C:\\Users\\AndresGiuffre\\OneDrive - kyndryl\\Documents\\PythonProgramming\\python_programming\\demo\\temporal.txt")
+except FileNotFoundError:
+    print("No se encuentra el archivo")
+
+# os.rename() --> Renombramos archivos
+try:
+    os.rename("C:\\Temp\\a.py", "C:\\Temp\\b.py")
+except FileNotFoundError:
+    print("No se encuentra el archivo")
+
+# os.system --> ejecuta comandos del SO
+os.system("dir")
+
+# os.name --> Nos informa que SO estamos corriendo. nt = Windows, posix = Linux
+print(os.name)
+
+# SHUTIL
+
+import shutil
+
+# shutil.copy() --> Copia archivos de una carpeta origen a una destino
+directorio = "C:\\Temp"
+try:
+    shutil.copy(directorio + "\\b.py", directorio + "\\c.py")
+except FileNotFoundError:
+    print("El archivo ya no existe!")
+
+# shutil.move() --> Mueve un archivo de un lado a otro
+try:
+    shutil.move(directorio + "\\b.py", directorio + "\\d.py")
+except FileNotFoundError:
+    print("El archivo no existe!")
+
+# shutil.rmtree() --> Elimina una carpeta con todo el contenido que tenga
+shutil.rmtree("C:\\Users\\AndresGiuffre\\OneDrive - kyndryl\\Documents\\PythonProgramming\\python_programming\\demo2")
+
+# *** CUIDADO AL BORRAR PORQUE NO SE RECUPERAN EN LA PAPELERA!!!! ***
+"""
+
+# EJECUCION DE COMANDOS CON subprocess
+
+import subprocess
+
+"""
+lista = ["mkdir", "Carpeta Nueva"]
+resultado = subprocess.run(lista, shell=True)
+
+if  resultado.returncode == 0:
+    print("La carpeta fue creada con éxito")
+else:
+    print("Hubo un error al crear la carpeta")
+"""
+
+host = subprocess.run("hostname", capture_output=True, encoding="cp850")
+print(host.stdout.strip())
+
+host = subprocess.run(["python", "--version"], capture_output=True, encoding="cp850")
+print(host.stdout.strip())
