@@ -143,8 +143,34 @@ boton4.grid(row=6, column=2)
 # Askretrycancel - Como el showwarning pero nos permite una opcion True y una False
 # respuesta = messagebox.askretrycancel("Error", "No se pudo conectar a la BBDD. Desea intentar nuevamente?")
 
-
-
-
 ventana.mainloop()
+
+
+# Para convertir este programa en un .exe primero instalamos PyInstaller
+
+# pip install pyinstaller
+
+# Desde un Command Prompt ejecutar en la carpeta donde está el programa .py:
+# pyinstaller archivo.py
+
+# Opciones posibles: 
+# --oneline
+# --noconsole
+# Ambas requieren exclusiones del antivirus, sino son detectadas como troyanos.
+
+
+# ENTORNOS VIRTUALES
+# ------------------
+
+# pip install virtualenv
+
+# Para crear un entorno virtual nos posicionamos en el directorio donde vamos a trabajar y ejecutamos:
+
+# virtualenv <nombre_del_entorno>
+
+# venv\Scripts\activate (Windows)
+# source venv/Scripts/activate (Linux)
+
+
+
 
